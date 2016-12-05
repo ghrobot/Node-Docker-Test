@@ -3,8 +3,6 @@ MAINTAINER robot i@gh.robot
 
 RUN yum update -y && yum install -y epel-release && yum install -y npm
 
-EXPOSE 80
-
 # CMD ["nodejs", "/server.js"]
 COPY . /src
 # Install app dependencies
