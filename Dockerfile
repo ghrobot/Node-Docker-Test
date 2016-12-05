@@ -1,7 +1,7 @@
 FROM index.alauda.cn/library/centos:latest
 MAINTAINER robot i@gh.robot
 
-RUN yum update && yum install -y epel-release npm
+RUN yum update -y && yum install -y epel-release && yum install -y npm
 
 EXPOSE 80
 
