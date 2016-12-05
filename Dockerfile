@@ -1,5 +1,5 @@
-FROM centos:latest
-MAINTAINER alaudadoc alaudadoc@alauda.cn
+FROM index.alauda.cn/library/centos:latest
+MAINTAINER robot i@gh.robot
 
 RUN yum update && yum install -y epel-release && yum install -y npm
 
