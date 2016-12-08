@@ -1,12 +1,16 @@
-FROM index.alauda.cn/library/centos:latest
+FROM index.alauda.cn/library/node:wheezy
 MAINTAINER robot i@gh.robot
 
-RUN yum update -y && yum install -y epel-release && yum install -y npm
+RUN groupadd -r nodejs && useradd -m -r -g nodejs nodejs
 
-# CMD ["nodejs", "/server.js"]
-COPY . /src
-# Install app dependencies
-RUN cd /src; npm install
+USER nodejs
 
 EXPOSE  8088
-CMD ["node", "/src/index.js"]
+
+RUN mkdir -p /home/nodejs/app
+WORKDIR /home/nodejs/app
+
+COPY . /home/nodejs/app
+RUN npm install
+
+CMD ["node", "src/app.js"]
