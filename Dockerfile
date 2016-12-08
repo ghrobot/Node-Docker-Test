@@ -11,6 +11,6 @@ RUN mkdir -p /home/nodejs/app
 WORKDIR /home/nodejs/app
 
 COPY . /home/nodejs/app
-RUN npm install
+RUN npm install --registry=https://registry.npm.taobao.org
 
 CMD ["node", "src/app.js"]
